@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  StartController.h
 //  white-demo-ios
 //
 //  Created by leavesster on 2018/8/19.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property (nonatomic, copy) NSString *roomUuid;
+@interface StartController : UIViewController
 
 @end
-

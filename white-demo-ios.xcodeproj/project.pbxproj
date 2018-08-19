@@ -15,6 +15,7 @@
 		39D4DDBA212933F60014CA5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDB9212933F60014CA5A /* main.m */; };
 		39D4DDC4212933F70014CA5A /* white_demo_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDC3212933F70014CA5A /* white_demo_iosTests.m */; };
 		39D4DDCF212933F70014CA5A /* white_demo_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDCE212933F70014CA5A /* white_demo_iosUITests.m */; };
+		39D4DDDE21293FFE0014CA5A /* StartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDDD21293FFE0014CA5A /* StartController.m */; };
 		452803CFA29427F40A54E367 /* libPods-white-demo-iosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F8047012543022D99F380C /* libPods-white-demo-iosTests.a */; };
 		8A400A0A03B40BE767ED5084 /* libPods-white-demo-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B104A3FC2D8D2E966CE4004 /* libPods-white-demo-ios.a */; };
 		945870A23112445EEB971D20 /* libPods-white-demo-iosUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EC7DDEA4D9DB5DFB25E1AB /* libPods-white-demo-iosUITests.a */; };
@@ -55,6 +56,8 @@
 		39D4DDCA212933F70014CA5A /* white-demo-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "white-demo-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D4DDCE212933F70014CA5A /* white_demo_iosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = white_demo_iosUITests.m; sourceTree = "<group>"; };
 		39D4DDD0212933F70014CA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39D4DDDC21293FFE0014CA5A /* StartController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartController.h; sourceTree = "<group>"; };
+		39D4DDDD21293FFE0014CA5A /* StartController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartController.m; sourceTree = "<group>"; };
 		3B104A3FC2D8D2E966CE4004 /* libPods-white-demo-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-white-demo-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F8047012543022D99F380C /* libPods-white-demo-iosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-white-demo-iosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		509DFEE5F2B79B7A319C27FD /* Pods-white-demo-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-white-demo-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-white-demo-iosTests/Pods-white-demo-iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 			children = (
 				39D4DDAA212933F50014CA5A /* AppDelegate.h */,
 				39D4DDAB212933F50014CA5A /* AppDelegate.m */,
+				39D4DDDC21293FFE0014CA5A /* StartController.h */,
+				39D4DDDD21293FFE0014CA5A /* StartController.m */,
 				39D4DDAD212933F50014CA5A /* ViewController.h */,
 				39D4DDAE212933F50014CA5A /* ViewController.m */,
 				39D4DDB0212933F50014CA5A /* Main.storyboard */,
@@ -383,6 +388,7 @@
 			files = (
 				39D4DDAF212933F50014CA5A /* ViewController.m in Sources */,
 				39D4DDBA212933F60014CA5A /* main.m in Sources */,
+				39D4DDDE21293FFE0014CA5A /* StartController.m in Sources */,
 				39D4DDAC212933F50014CA5A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

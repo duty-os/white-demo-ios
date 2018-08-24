@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.sdkToken = @"WHITEcGFydG5lcl9pZD1DYzlFNTJhTVFhUU5TYmlHNWJjbkpmVThTNGlNVXlJVUNwdFAmc2lnPTE3Y2ZiYzg0ZGM5N2FkNDAxZmY1MTM0ODMxYTdhZTE2ZGQ3MTdmZjI6YWRtaW5JZD00JnJvbGU9bWluaSZleHBpcmVfdGltZT0xNTY2MDQwNjk4JmFrPUNjOUU1MmFNUWFRTlNiaUc1YmNuSmZVOFM0aU1VeUlVQ3B0UCZjcmVhdGVfdGltZT0xNTM0NDgzNzQ2Jm5vbmNlPTE1MzQ0ODM3NDYzMzYwMA";
     self.view.backgroundColor = [UIColor whiteColor];
-    if (self.roomUuid) {
+    if ([self.roomUuid length] > 0) {
         [self joinRoom];
     } else {
         [self createRoom];
@@ -59,7 +59,12 @@
             NSString *roomToken = response[@"msg"][@"roomToken"];
             [self joinRoomWithUuid:self.roomUuid roomToken:roomToken];
         } else {
-            self.title = NSLocalizedString(@"加入失败", nil);
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"加入房间失败", nil) message:[NSString stringWithFormat:@"错误信息:%@", [response description]] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alertVC addAction:action];
+            [self presentViewController:alertVC animated:YES completion:nil];
         }
     }];
 }
@@ -77,10 +82,14 @@
             [self.view addSubview:self.boardView];
         } else {
             self.title = NSLocalizedString(@"加入失败", nil);
-            //TODO: error
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"加入房间失败", nil) message:[NSString stringWithFormat:@"错误信息:%@", [error localizedDescription]] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alertVC addAction:action];
+            [self presentViewController:alertVC animated:YES completion:nil];
         }
     }];
-
 }
 
 #pragma mark - Set API
@@ -213,7 +222,11 @@
                 result(NO, nil);
             } else if (result) {
                 NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                result(YES, responseObject);
+                if ([responseObject[@"code"] integerValue]  == 200) {
+                    result(YES, responseObject);
+                } else {
+                    result(NO, responseObject);
+                }
             }
         });
     }];

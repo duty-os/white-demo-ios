@@ -30,6 +30,21 @@
     }
 }
 
+- (void)setupShareBarItem
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"分享", nil) style:UIBarButtonItemStylePlain target:self action:@selector(shareRoomUUID)];
+}
+
+- (void)shareRoomUUID
+{
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[self.roomUuid ? :@""] applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop];
+    activityVC.popoverPresentationController.sourceView = [self.navigationItem.rightBarButtonItem valueForKey:@"view"];
+    activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError){
+    };
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -44,6 +59,7 @@
         if (success) {
             NSString *roomToken = response[@"msg"][@"roomToken"];
             NSString *uuid = response[@"msg"][@"room"][@"uuid"];
+            self.roomUuid = uuid;
             [self joinRoomWithUuid:uuid roomToken:roomToken];
         } else {
             self.title = NSLocalizedString(@"创建失败", nil);
@@ -76,6 +92,7 @@
     [self.sdk joinRoomWithRoomUuid:uuid roomToken:roomToken callbacks:(id<WhiteRoomCallbackDelegate>)self completionHandler:^(BOOL success, WhiteRoom *room, NSError *error) {
         if (success) {
             self.title = NSLocalizedString(@"我的白板", nil);
+            [self setupShareBarItem];
             self.room = room;
             self.boardView.frame = self.view.bounds;
             self.boardView.autoresizingMask = UIViewAutoresizingFlexibleWidth |  UIViewAutoresizingFlexibleHeight;

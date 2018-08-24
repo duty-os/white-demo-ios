@@ -17,12 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UIStackView *stackView = [[UIStackView alloc] init];
     stackView.axis = UILayoutConstraintAxisVertical;
     stackView.distribution = UIStackViewDistributionFillProportionally;
     stackView.alignment = UIStackViewAlignmentCenter;
     [self.view addSubview:stackView];
-    stackView.frame = CGRectMake(0, 0, 300, 300);
+    stackView.frame = CGRectMake(0, 0, 300, 120);
     stackView.center = self.view.center;
     stackView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
@@ -46,6 +47,14 @@
         [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
         [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeybroader:)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeybroader:(id)sender
+{
+    [self.inputV resignFirstResponder];
 }
 
 - (void)joinRoom

@@ -60,7 +60,11 @@
             NSString *roomToken = response[@"msg"][@"roomToken"];
             NSString *uuid = response[@"msg"][@"room"][@"uuid"];
             self.roomUuid = uuid;
-            [self joinRoomWithUuid:uuid roomToken:roomToken];
+            if (uuid && roomToken) {
+                [self joinRoomWithUuid:uuid roomToken:roomToken];
+            } else {
+                self.title = NSLocalizedString(@"创建失败", nil);
+            }
         } else {
             self.title = NSLocalizedString(@"创建失败", nil);
         }

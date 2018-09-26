@@ -92,6 +92,7 @@
 - (void)joinRoomWithUuid:(NSString *)uuid roomToken:(NSString *)roomToken
 {
     self.boardView = [[WhiteBoardView alloc] init];
+    //请提前将 boardView 添加至视图栈中（生成 whiteSDK 前）。否则 iOS 12 真机无法执行正常执行sdk代码。
     self.boardView.frame = self.view.bounds;
     self.boardView.autoresizingMask = UIViewAutoresizingFlexibleWidth |  UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.boardView];

@@ -92,15 +92,16 @@
 - (void)joinRoomWithUuid:(NSString *)uuid roomToken:(NSString *)roomToken
 {
     self.boardView = [[WhiteBoardView alloc] init];
+    self.boardView.frame = self.view.bounds;
+    self.boardView.autoresizingMask = UIViewAutoresizingFlexibleWidth |  UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.boardView];
+
     self.sdk = [[WhiteSDK alloc] initWithWhiteBoardView:self.boardView config:[WhiteSdkConfiguration defaultConfig]];
     [self.sdk joinRoomWithRoomUuid:uuid roomToken:roomToken callbacks:(id<WhiteRoomCallbackDelegate>)self completionHandler:^(BOOL success, WhiteRoom *room, NSError *error) {
         if (success) {
             self.title = NSLocalizedString(@"我的白板", nil);
             [self setupShareBarItem];
             self.room = room;
-            self.boardView.frame = self.view.bounds;
-            self.boardView.autoresizingMask = UIViewAutoresizingFlexibleWidth |  UIViewAutoresizingFlexibleHeight;
-            [self.view addSubview:self.boardView];
         } else {
             self.title = NSLocalizedString(@"加入失败", nil);
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"加入房间失败", nil) message:[NSString stringWithFormat:@"错误信息:%@", [error localizedDescription]] preferredStyle:UIAlertControllerStyleAlert];

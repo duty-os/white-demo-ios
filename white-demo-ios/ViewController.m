@@ -138,10 +138,6 @@
         
     }];
     
-    [self.room getTransformWithResult:^(WhiteLinearTransformationDescription *transform) {
-        NSLog(@"%@", [transform jsonString]);
-    }];
-    
     [self.room getGlobalStateWithResult:^(WhiteGlobalState *state) {
         NSLog(@"%@", [state jsonString]);
     }];

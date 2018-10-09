@@ -18,6 +18,8 @@
 
 @implementation ViewController
 
+static NSString * const kCustomEvent = @"custom";
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,7 +34,9 @@
 
 - (void)setupShareBarItem
 {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"分享", nil) style:UIBarButtonItemStylePlain target:self action:@selector(shareRoomUUID)];
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"分享", nil) style:UIBarButtonItemStylePlain target:self action:@selector(shareRoomUUID)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"自定义", nil) style:UIBarButtonItemStylePlain target:self action:@selector(customRoomEvent)];
+    self.navigationItem.rightBarButtonItems = @[item1, item2];
 }
 
 - (void)shareRoomUUID
@@ -43,6 +47,12 @@
     activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError){
     };
     [self presentViewController:activityVC animated:YES completion:nil];
+}
+
+- (void)customRoomEvent
+{
+    NSDictionary *dict = @{@"test": @"1234"};
+    [self.room dispatchMagixEvent:kCustomEvent payload:dict];
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,6 +113,7 @@
             self.title = NSLocalizedString(@"我的白板", nil);
             [self setupShareBarItem];
             self.room = room;
+            [self.room addMagixEventListener:kCustomEvent];
         } else {
             self.title = NSLocalizedString(@"加入失败", nil);
             UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"加入房间失败", nil) message:[NSString stringWithFormat:@"错误信息:%@", [error localizedDescription]] preferredStyle:UIAlertControllerStyleAlert];
@@ -196,6 +207,11 @@
 - (void)fireCatchErrorWhenAppendFrame:(NSUInteger)userId error:(NSString *)error
 {
     NSLog(@"%s, %luu %@", __func__,(unsigned long) (unsigned long)userId, error);
+}
+
+- (void)fireMagixEvent:(WhiteEvent *)event
+{
+    NSLog(@"fireMagixEvent: %@", [event jsonString]);
 }
 
 

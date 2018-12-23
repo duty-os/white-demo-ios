@@ -6,14 +6,14 @@
 //  Copyright © 2018年 yleaf. All rights reserved.
 //
 
-#import "StartController.h"
-#import "ViewController.h"
+#import "WhiteStartViewController.h"
+#import "WhiteRoomViewController.h"
 
-@interface StartController ()
+@interface WhiteStartViewController ()
 @property (nonatomic, strong) UITextField *inputV;
 @end
 
-@implementation StartController
+@implementation WhiteStartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +23,7 @@
     stackView.distribution = UIStackViewDistributionFillProportionally;
     stackView.alignment = UIStackViewAlignmentCenter;
     [self.view addSubview:stackView];
+    
     stackView.frame = CGRectMake(0, 0, 300, 120);
     stackView.center = self.view.center;
     stackView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -35,12 +36,12 @@
     
     UIButton *joinBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [joinBtn setTitle:NSLocalizedString(@"加入房间", nil) forState:UIControlStateNormal];
-    [joinBtn addTarget:self action:@selector(joinRoom) forControlEvents:UIControlEventTouchUpInside];
+    [joinBtn addTarget:self action:@selector(joinRoom:) forControlEvents:UIControlEventTouchUpInside];
     [stackView addArrangedSubview:joinBtn];
     
     UIButton *createBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [createBtn setTitle:NSLocalizedString(@"创建新房间", nil) forState:UIControlStateNormal];
-    [createBtn addTarget:self action:@selector(createRoom) forControlEvents:UIControlEventTouchUpInside];
+    [createBtn addTarget:self action:@selector(createRoom:) forControlEvents:UIControlEventTouchUpInside];
     [stackView addArrangedSubview:createBtn];
     
     for (UIView *view in stackView.arrangedSubviews) {
@@ -57,28 +58,18 @@
     [self.inputV resignFirstResponder];
 }
 
-- (void)joinRoom
+#pragma mark - Button Action
+- (void)joinRoom:(UIButton *)sender
 {
-    ViewController *vc = [[ViewController alloc] init];
+    WhiteRoomViewController *vc = [[WhiteRoomViewController alloc] init];
     vc.roomUuid = self.inputV.text;
-    NSLog(@"加入房间:%@", self.inputV.text);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)createRoom
+- (void)createRoom:(UIButton *)sender
 {
-    ViewController *vc = [[ViewController alloc] init];
+    WhiteRoomViewController *vc = [[WhiteRoomViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

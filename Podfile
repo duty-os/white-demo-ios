@@ -6,7 +6,7 @@ target 'white-demo-ios' do
   # use_frameworks!
 
   pod 'White-SDK-iOS'
-
+  pod 'Masonry'
   target 'white-demo-iosTests' do
     inherit! :search_paths
     # Pods for testing

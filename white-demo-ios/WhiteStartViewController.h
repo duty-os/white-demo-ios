@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StartController : UIViewController
+@interface WhiteStartViewController : UIViewController
 
 @end

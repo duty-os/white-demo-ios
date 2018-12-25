@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		397DCE5D21D26B800076B381 /* WhiteCommandListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397DCE5B21D26B7F0076B381 /* WhiteCommandListController.m */; };
 		39816C7F21CFBF610095B419 /* WhiteRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39816C7D21CFBF610095B419 /* WhiteRoomViewController.m */; };
 		39816C8021CFBF610095B419 /* WhiteStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39816C7E21CFBF610095B419 /* WhiteStartViewController.m */; };
 		39D4DDAC212933F50014CA5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDAB212933F50014CA5A /* AppDelegate.m */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		10ABE7966C0D2CC6BE2F9A37 /* Pods-white-demo-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-white-demo-iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-white-demo-iosUITests/Pods-white-demo-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		397DCE5B21D26B7F0076B381 /* WhiteCommandListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteCommandListController.m; sourceTree = "<group>"; };
+		397DCE5C21D26B800076B381 /* WhiteCommandListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteCommandListController.h; sourceTree = "<group>"; };
 		39816C7B21CFBF610095B419 /* WhiteRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteRoomViewController.h; sourceTree = "<group>"; };
 		39816C7C21CFBF610095B419 /* WhiteStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteStartViewController.h; sourceTree = "<group>"; };
 		39816C7D21CFBF610095B419 /* WhiteRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteRoomViewController.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				39816C7D21CFBF610095B419 /* WhiteRoomViewController.m */,
 				39816C7C21CFBF610095B419 /* WhiteStartViewController.h */,
 				39816C7E21CFBF610095B419 /* WhiteStartViewController.m */,
+				397DCE5C21D26B800076B381 /* WhiteCommandListController.h */,
+				397DCE5B21D26B7F0076B381 /* WhiteCommandListController.m */,
 				39D4DDB0212933F50014CA5A /* Main.storyboard */,
 				39D4DDB3212933F60014CA5A /* Assets.xcassets */,
 				39D4DDB5212933F60014CA5A /* LaunchScreen.storyboard */,
@@ -387,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39D4DDBA212933F60014CA5A /* main.m in Sources */,
+				397DCE5D21D26B800076B381 /* WhiteCommandListController.m in Sources */,
 				39D4DDAC212933F50014CA5A /* AppDelegate.m in Sources */,
 				39816C7F21CFBF610095B419 /* WhiteRoomViewController.m in Sources */,
 				39816C8021CFBF610095B419 /* WhiteStartViewController.m in Sources */,

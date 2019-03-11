@@ -1,7 +1,7 @@
 # white-ios-demo
 
-简介：本项目为 iOS [white-sdk](https://github.com/duty-os/white-sdk-ios-release) 的示例 pod demo。  
-[white-sdk](https://github.com/duty-os/white-sdk-ios-release) 的 Example 项目，更新更为及时，推荐直接在 [white-sdk](https://github.com/duty-os/white-sdk-ios-release) 中查看。
+简介：本项目为 iOS [white-sdk-ios](https://github.com/duty-os/white-sdk-ios-release) 的示例 pod demo。由于跨越 repo 太多，更新不及时。
+请直接查看 [white-sdk-ios](https://github.com/duty-os/white-sdk-ios-release) 中查看。
 
 # quick start
 
